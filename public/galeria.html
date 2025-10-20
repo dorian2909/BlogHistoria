@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Histórica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #e94560 0%, #533483 50%, #0f3460 100%);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(233, 69, 96, 0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Gallery Container */
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(233, 69, 96, 0.4), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(83, 52, 131, 0.4), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.3), transparent);
+            background-size: 200% 200%, 200% 200%, 300% 300%;
+            animation: particleMove 15s ease-in-out infinite;
+        }
+
+        @keyframes particleMove {
+            0%, 100% {
+                background-position: 0% 0%, 100% 100%, 50% 50%;
+            }
+            50% {
+                background-position: 100% 100%, 0% 0%, 80% 80%;
+            }
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e94560 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-intro p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Grid Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: slideUp 0.6s ease backwards;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(233, 69, 96, 0.5);
+            border-color: #e94560;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.95em;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* Modal/Lightbox */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 95vw;
+            max-height: 90vh;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 20px 80px rgba(233, 69, 96, 0.6);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 3em;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(233, 69, 96, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            background: #e94560;
+        }
+
+        .modal-caption {
+            text-align: center;
+            margin-top: 20px;
+            color: #ffd700;
+            font-size: 1.3em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #e94560 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 -10px 40px rgba(233, 69, 96, 0.3);
+        }
+
+        footer h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 1.1em;
+            margin: 8px 0;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        footer p strong {
+            color: #ffd700;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gallery-intro h2 {
+                font-size: 2em;
+            }
+
+            .gallery-item img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-button">← Volver</a>
+        <h1>Galería Histórica</h1>
+    </header>
+   
+    <main>
+        <div class="gallery-container">
+            <div class="gallery-intro">
+                <h2>Imágenes del Destino Manifiesto</h2>
+                <p>Explora una colección visual que documenta la expansión estadounidense durante el siglo XIX, 
+                   un período que transformó el continente americano para siempre.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="assets/galeria1.jpg" alt="Columbia">
+                    <div class="gallery-overlay">
+                        <h3>Destino Manifiesto</h3>
+                        <p>Simboliza a EE.UU. trayendo “civilización”, educación y progreso al territorio no colonizado.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="assets/william-walker-getty-517454112.avif" alt="Destino Manifiesto">
+                    <div class="gallery-overlay">
+                        <h3>Filibusterismo</h3>
+                        <p>movimiento de invasiones militares privadas y organizadas por ciudadanos estadounidenses durante el siglo XIX. </p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="assets/image3.jpg" alt="Ferrocarril Transcontinental">
+                    <div class="gallery-overlay">
+                        <h3>Ferrocarril Transcontinental</h3>
+                        <p>La construcción del ferrocarril que unió el país de costa a costa.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="assets/image4.jpg" alt="Colonización del Oeste">
+                    <div class="gallery-overlay">
+                        <h3>Colonización del Oeste</h3>
+                        <p>Pioneros asentándose en los nuevos territorios occidentales.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="assets/image5.jpg" alt="Conflictos Territoriales">
+                    <div class="gallery-overlay">
+                        <h3>Conflictos Territoriales</h3>
+                        <p>Batallas y negociaciones por el control de nuevos territorios.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="assets/image6.jpg" alt="Pueblos Originarios">
+                    <div class="gallery-overlay">
+                        <h3>Pueblos Originarios</h3>
+                        <p>El impacto de la expansión en las comunidades indígenas nativas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para vista ampliada -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <p class="modal-caption" id="modalCaption"></p>
+        </div>
+    </div>
+    
+    <footer>
+        <h1>Proyecto hecho por</h1>
+        <p><strong>Dorian Umaña</strong></p>
+        <p><strong>Sebastian Rodriguez</strong></p>
+        <p><strong>Meryan</strong></p>
+    </footer>
+
+    <script>
+        function openModal(element) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const caption = document.getElementById('modalCaption');
+            
+            const img = element.querySelector('img');
+            const title = element.querySelector('h3').textContent;
+            
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            caption.textContent = title;
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
