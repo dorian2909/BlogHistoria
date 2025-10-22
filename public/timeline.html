@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Línea del Tiempo - Campaña Nacional 1856</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/timeline.css" />
+  </head>
+  <body>
+    <nav class="navigation-scroll">
+      <a href="intro.html" class="nav-link">
+        <span class="nav-icon">↩</span>
+        Volver a Introducción
+      </a>
+    </nav>
+
+    <header class="historical-header">
+      <h1>Línea del Tiempo: Campaña Nacional 1856-1857</h1>
+    </header>
+
+    <main>
+      <section class="historical-timeline">
+        <!-- Indicador de progreso -->
+        <div class="timeline-progress" id="progressBar"></div>
+
+        <div class="timeline-container">
+          <div class="timeline-navigation">
+            <button class="nav-button prev" id="prevBtn">←</button>
+            <button class="nav-button next" id="nextBtn">→</button>
+          </div>
+
+          <div class="timeline-events" id="timelineEvents">
+            <!-- Evento 1: Doctrina Monroe -->
+            <div class="timeline-event active" data-index="0">
+              <div class="event-marker-container">
+                <div class="event-marker political">🏛️</div>
+              </div>
+              <div class="event-content">
+                <h3>1823 - Doctrina Monroe</h3>
+                <div class="event-type">Evento Político</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/Doctrina-Monroe01.jpg"
+                    alt="Doctrina Monroe"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  "América para los americanos" - Primera justificación
+                  ideológica para la intervención de Estados Unidos en el
+                  continente.
+                </p>
+                <div class="event-details" id="details0">
+                  <blockquote class="historical-quote">
+                    "La ocasión ha sido juzgada conveniente para afirmar, como
+                    un principio que afecta a los derechos e intereses de los
+                    Estados Unidos, que los continentes americanos no deben ser
+                    considerados en adelante como sujetos de futura colonización
+                    por ninguna potencia europea."
+                  </blockquote>
+                  <p
+                    style="color: #a89968; font-size: 1.1rem; line-height: 1.7"
+                  >
+                    Esta doctrina marcó el inicio de la intervención
+                    estadounidense en América Latina, estableciendo que
+                    cualquier intento europeo de colonizar el continente sería
+                    visto como un acto hostil. En la práctica, sirvió para
+                    justificar la expansión norteamericana.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(0)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 2: Destino Manifiesto -->
+            <div class="timeline-event" data-index="1">
+              <div class="event-marker-container">
+                <div class="event-marker ideological">📜</div>
+              </div>
+              <div class="event-content">
+                <h3>1845 - Destino Manifiesto</h3>
+                <div class="event-type">Doctrina Ideológica</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/002-destino manifesto.webp"
+                    alt="Destino Manifiesto"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  John L. O'Sullivan populariza el término que justificaba la
+                  expansión territorial estadounidense como una misión divina
+                  ordenada por la Providencia.
+                </p>
+                <div class="event-details" id="details1">
+                  <ul class="concept-list">
+                    <li>
+                      <strong>Excepcionalismo:</strong> Estados Unidos poseía
+                      instituciones superiores al resto del mundo.
+                    </li>
+                    <li>
+                      <strong>Misión civilizadora:</strong> Era un deber
+                      "mejorar" a pueblos considerados inferiores.
+                    </li>
+                    <li>
+                      <strong>Providencialismo:</strong> Dios había destinado a
+                      EE.UU. a dominar el continente.
+                    </li>
+                    <li>
+                      <strong>Superioridad racial:</strong> La raza anglosajona
+                      era superior a indígenas, africanos y mestizos.
+                    </li>
+                  </ul>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(1)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 3: Guerra México-EE.UU. -->
+            <div class="timeline-event" data-index="2">
+              <div class="event-marker-container">
+                <div class="event-marker battle">⚔️</div>
+              </div>
+              <div class="event-content">
+                <h3>1846-1848 - Guerra México-EE.UU.</h3>
+                <div class="event-type">Conflicto Bélico</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/003- eeuu vs mx.webp"
+                    alt="Guerra contra México"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  Muestra clara del expansionismo agresivo estadounidense.
+                  EE.UU. anexa enormes territorios mexicanos incluyendo
+                  California, Texas y Nuevo México.
+                </p>
+                <div class="event-details" id="details2">
+                  <p
+                    style="
+                      color: #e8d5b7;
+                      font-size: 1.1rem;
+                      line-height: 1.7;
+                      margin: 20px 0;
+                    "
+                  >
+                    Este conflicto demostró la voluntad de Estados Unidos de
+                    usar la fuerza militar para expandir su territorio. México
+                    perdió más del 55% de su territorio nacional, estableciendo
+                    un precedente peligroso para América Latina.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(2)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 4: Walker invade Nicaragua -->
+            <div class="timeline-event" data-index="3">
+              <div class="event-marker-container">
+                <div class="event-marker battle">⚔️</div>
+              </div>
+              <div class="event-content">
+                <h3>1855 - Walker Invade Nicaragua</h3>
+                <div class="event-type">Inicio del Filibusterismo</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/004walterInvadeNica.jpg"
+                    alt="Invasión de Walker"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  William Walker aprovecha la guerra civil nicaragüense e invade
+                  con apenas decenas de hombres, logrando tomar control del
+                  país.
+                </p>
+                <div class="event-details" id="details3">
+                  <p
+                    style="
+                      color: #e8d5b7;
+                      font-size: 1.1rem;
+                      line-height: 1.7;
+                      margin: 20px 0;
+                    "
+                  >
+                    Walker llegó a Nicaragua con un pequeño ejército mercenario.
+                    Aprovechando la inestabilidad política, logró inserirse en
+                    el conflicto interno y rápidamente ganó poder militar y
+                    político en la región.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(3)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 5: Walker Presidente -->
+            <div class="timeline-event" data-index="4">
+              <div class="event-marker-container">
+                <div class="event-marker political">👑</div>
+              </div>
+              <div class="event-content">
+                <h3>1856 - Walker se Proclama Presidente</h3>
+                <div class="event-type">Golpe Político</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/005- walterPresidenteNica.webp"
+                    alt="Walker como presidente"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  Walker se proclama presidente de Nicaragua, restablece la
+                  esclavitud, declara el inglés idioma oficial y controla la
+                  ruta del tránsito interoceánico.
+                </p>
+                <div class="event-details" id="details4">
+                  <ul class="concept-list">
+                    <li>
+                      <strong>Esclavitud:</strong> Restableció la esclavitud
+                      abolida años atrás.
+                    </li>
+                    <li>
+                      <strong>Idioma oficial:</strong> Declaró el inglés como
+                      idioma oficial de Nicaragua.
+                    </li>
+                    <li>
+                      <strong>Inmigración:</strong> Promovió la llegada de
+                      estadounidenses del sur esclavista.
+                    </li>
+                    <li>
+                      <strong>Control estratégico:</strong> Dominó la ruta del
+                      Río San Juan y Lago Nicaragua.
+                    </li>
+                  </ul>
+                  <p
+                    style="color: #a89968; font-size: 1.1rem; margin-top: 20px"
+                  >
+                    Sus acciones amenazaban directamente la soberanía de toda
+                    Centroamérica.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(4)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 6: Batalla de Santa Rosa -->
+            <div class="timeline-event" data-index="5">
+              <div class="event-marker-container">
+                <div class="event-marker battle">⚔️</div>
+              </div>
+              <div class="event-content">
+                <h3>20 Marzo 1856 - Batalla de Santa Rosa</h3>
+                <div class="event-type">Primera Victoria Costarricense</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/006-BatallaSantaRosa.jpg"
+                    alt="Batalla de Santa Rosa"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  Victoria rápida y decisiva de las tropas costarricenses. En
+                  apenas 14 minutos, expulsaron a los invasores filibusteros del
+                  territorio nacional de forma sorpresiva.
+                </p>
+                <div class="event-details" id="details5">
+                  <blockquote class="historical-quote">
+                    "La batalla fue breve pero crucial. Las tropas
+                    costarricenses demostraron su determinación de defender la
+                    patria contra cualquier invasor extranjero."
+                  </blockquote>
+                  <p
+                    style="
+                      color: #e8d5b7;
+                      font-size: 1.1rem;
+                      line-height: 1.7;
+                      margin: 20px 0;
+                    "
+                  >
+                    Bajo el mando del Presidente Juan Rafael Mora Porras, el
+                    ejército costarricense logró su primera victoria contra los
+                    filibusteros, marcando el inicio de la Campaña Nacional.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(5)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 7: Batalla de Rivas - CON VIDEO -->
+            <div class="timeline-event" data-index="6">
+              <div class="event-marker-container">
+                <div class="event-marker battle">🔥</div>
+              </div>
+              <div class="event-content">
+                <h3>11 Abril 1856 - Batalla de Rivas</h3>
+                <div class="event-type">
+                  ⭐ Sacrificio de Juan Santamaría ⭐
+                </div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/007-quema.jpg"
+                    alt="Batalla de Rivas"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  El joven Juan Santamaría arriesga su vida para incendiar el
+                  mesón donde se refugiaban los filibusteros, permitiendo la
+                  victoria costarricense y convirtiéndose en Héroe Nacional.
+                </p>
+                <div class="event-details" id="details6">
+                  <blockquote class="historical-quote">
+                    "¡Yo voy, aunque me maten!" - Últimas palabras atribuidas a
+                    Juan Santamaría antes de su acto heroico.
+                  </blockquote>
+                  <p
+                    style="
+                      color: #e8d5b7;
+                      font-size: 1.1rem;
+                      line-height: 1.7;
+                      margin: 20px 0;
+                    "
+                  >
+                    Este acto de valentía se convirtió en el símbolo máximo del
+                    patriotismo costarricense. Juan Santamaría sacrificó su vida
+                    por la libertad de su patria, inspirando a generaciones
+                    futuras.
+                  </p>
+                  <div style="text-align: center; margin: 30px 0">
+                    <a
+                      href="video-rivas.html"
+                      style="
+                        display: inline-block;
+                        padding: 20px 50px;
+                        background: linear-gradient(
+                          135deg,
+                          #a52a2a 0%,
+                          #8b1a1a 100%
+                        );
+                        color: #fff;
+                        text-decoration: none;
+                        font-family: 'Cinzel', serif;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        border: 3px solid #d4af37;
+                        border-radius: 10px;
+                        box-shadow: 0 8px 25px rgba(165, 42, 42, 0.6);
+                        transition: all 0.4s ease;
+                      "
+                    >
+                      🎬 Ver Video Histórico (8 min)
+                    </a>
+                  </div>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(6)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 8: Campaña del Río San Juan -->
+            <div class="timeline-event" data-index="7">
+              <div class="event-marker-container">
+                <div class="event-marker battle">🛶</div>
+              </div>
+              <div class="event-content">
+                <h3>1856-1857 - Campaña del Río San Juan</h3>
+                <div class="event-type">Control Estratégico</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/008-San_Juan_del_Sur_Batalla_naval.jpg"
+                    alt="Campaña Río San Juan"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  Las tropas costarricenses toman puntos estratégicos para
+                  controlar las rutas de abastecimiento de Walker, debilitando
+                  sus fuerzas y llevándolo a su derrota.
+                </p>
+                <div class="event-details" id="details7">
+                  <ul class="concept-list">
+                    <li>
+                      <strong>Objetivos:</strong> Cortar las líneas de
+                      suministro de los filibusteros.
+                    </li>
+                    <li>
+                      <strong>Estrategia:</strong> Control de puntos clave en el
+                      Río San Juan y Lago Nicaragua.
+                    </li>
+                    <li>
+                      <strong>Resultado:</strong> Aislamiento total de las
+                      fuerzas de Walker.
+                    </li>
+                  </ul>
+                  <p
+                    style="color: #a89968; font-size: 1.1rem; margin-top: 20px"
+                  >
+                    Esta campaña fue decisiva para la derrota final de los
+                    filibusteros.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(7)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 9: Epidemia de Cólera -->
+            <div class="timeline-event" data-index="8">
+              <div class="event-marker-container">
+                <div class="event-marker tragedy">💀</div>
+              </div>
+              <div class="event-content">
+                <h3>1856-1857 - Epidemia de Cólera</h3>
+                <div class="event-type">Tragedia Sanitaria</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/09-colera.jpg"
+                    alt="Epidemia de cólera"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  La propagación del cólera por contacto con tropas procedentes
+                  de Nicaragua causó numerosas muertes y devastación económica.
+                  El mayor costo humano de la guerra.
+                </p>
+                <div class="event-details" id="details8">
+                  <p
+                    style="
+                      color: #e8d5b7;
+                      font-size: 1.1rem;
+                      line-height: 1.7;
+                      margin: 20px 0;
+                    "
+                  >
+                    La epidemia de cólera mató a más costarricenses que las
+                    batallas mismas. Las familias sufrieron pérdidas
+                    devastadoras y el país enfrentó una crisis sanitaria sin
+                    precedentes. Este fue el precio más alto de la victoria
+                    contra los filibusteros.
+                  </p>
+                  <p
+                    style="color: #a89968; font-size: 1.1rem; margin-top: 20px"
+                  >
+                    El periodo de recuperación fue largo y difícil, marcando
+                    profundamente la memoria nacional.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(8)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 10: Derrota de Walker -->
+            <div class="timeline-event" data-index="9">
+              <div class="event-marker-container">
+                <div class="event-marker battle">🏆</div>
+              </div>
+              <div class="event-content">
+                <h3>1857 - Derrota Final de Walker</h3>
+                <div class="event-type">Victoria Centroamericana</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/09-derrota de walker.jpg"
+                    alt="Derrota de Walker"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  La alianza centroamericana logra la rendición y captura de
+                  William Walker. La marina estadounidense lo captura y lo
+                  deporta, poniendo fin al filibusterismo en la región.
+                </p>
+                <div class="event-details" id="details9">
+                  <blockquote class="historical-quote">
+                    "La unión de las naciones centroamericanas demostró que era
+                    posible vencer amenazas externas cuando actuaban en
+                    conjunto."
+                  </blockquote>
+                  <ul class="concept-list">
+                    <li>
+                      <strong>Unión regional:</strong> Costa Rica, Honduras,
+                      Guatemala, El Salvador y Nicaragua unidos.
+                    </li>
+                    <li>
+                      <strong>Victoria compartida:</strong> Triunfo de toda
+                      Centroamérica.
+                    </li>
+                    <li>
+                      <strong>Identidad fortalecida:</strong> Surgimiento de
+                      héroes nacionales y orgullo patrio.
+                    </li>
+                  </ul>
+                  <p
+                    style="color: #e8d5b7; font-size: 1.1rem; margin-top: 20px"
+                  >
+                    Esta victoria estableció un precedente de resistencia ante
+                    el imperialismo extranjero.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(9)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+
+            <!-- Evento 11: Ejecución de Walker -->
+            <div class="timeline-event" data-index="10">
+              <div class="event-marker-container">
+                <div class="event-marker tragedy">⚰️</div>
+              </div>
+              <div class="event-content">
+                <h3>1860 - Ejecución de Walker</h3>
+                <div class="event-type">Fin Definitivo</div>
+                <div class="event-image-container">
+                  <img
+                    src="assets/10-Fusilamiento-de-William-Walker-en-Trujillo.jpg"
+                    alt="Ejecución de Walker"
+                    class="event-image"
+                  />
+                </div>
+                <p class="event-description">
+                  Walker intenta invadir Honduras pero es capturado y fusilado.
+                  Fin definitivo de la amenaza filibustera en Centroamérica.
+                </p>
+                <div class="event-details" id="details10">
+                  <p
+                    style="
+                      color: #e8d5b7;
+                      font-size: 1.1rem;
+                      line-height: 1.7;
+                      margin: 20px 0;
+                    "
+                  >
+                    Después de ser deportado en 1857, Walker no desistió de sus
+                    ambiciones. En 1860 intentó una nueva invasión a Honduras,
+                    pero fue capturado por la marina británica y entregado a las
+                    autoridades hondureñas, quienes lo ejecutaron por
+                    fusilamiento.
+                  </p>
+                  <p
+                    style="
+                      color: #d4af37;
+                      font-size: 1.2rem;
+                      margin-top: 20px;
+                      font-weight: 600;
+                    "
+                  >
+                    Su muerte marcó el fin definitivo del filibusterismo
+                    estadounidense en Centroamérica.
+                  </p>
+                </div>
+                <button class="details-toggle" onclick="toggleDetails(10)">
+                  Ver más detalles
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/timeline.js" defer></script>
+  </body>
+</html>

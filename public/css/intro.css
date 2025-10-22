@@ -5,21 +5,380 @@
 }
 
 body {
-    font-family: 'Lora', serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    background: #0a0a0a;
+    color: #2c1810;
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* Header con efecto de degradado dinámico */
-header {
-    background: linear-gradient(135deg, #e94560 0%, #533483 50%, #0f3460 100%);
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/fondoPerga.webp') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Navegación estilo histórico */
+.navigation-scroll {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    background: linear-gradient(145deg, #1a0f0f 0%, #2d1810 100%);
+    border: 2px solid #8b6914;
+    padding: 12px 20px;
+    color: #d4af37;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link:hover {
+    transform: translateX(5px);
+    background: linear-gradient(145deg, #2d1810 0%, #1a0f0f 100%);
+    border-color: #d4af37;
+    box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+}
+
+.nav-icon {
+    font-size: 20px;
+}
+
+/* Header estilo histórico */
+.historical-header {
+    background: linear-gradient(145deg, #1a0f0f 0%, #2d1810 100%);
     padding: 60px 20px;
     text-align: center;
     position: relative;
+    border-bottom: 3px solid #8b6914;
+    box-shadow: 0 4px 20px rgba(139, 105, 20, 0.3);
+    z-index: 1;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.header-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 5vw, 48px);
+    color: #d4af37;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.header-decoration {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b6914, transparent);
+}
+
+/* Contenido principal */
+main {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.historical-document {
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(239, 231, 212, 0.95);
+    border: 3px solid #8b6914;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    animation: unfoldDocument 1s ease-out;
+}
+
+@keyframes unfoldDocument {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.document-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.document-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: #4a2810;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.seal-decoration {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%238b6914" stroke-width="2"/><text x="50" y="55" text-anchor="middle" font-family="serif" font-size="14" fill="%238b6914">1856</text></svg>');
+    opacity: 0.8;
+    transform: rotate(-15deg);
+}
+
+.year-mark {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #8b6914;
+    margin-top: 10px;
+}
+
+.historical-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #2c1810;
+    margin-bottom: 30px;
+    text-align: justify;
+    position: relative;
+    padding: 20px;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.historical-image-container {
+    position: relative;
+    margin: 40px 0;
+    padding: 20px;
+
+.timeline-link {
+    background: linear-gradient(120deg, #f7e7b4 0%, #e9d8b4 100%);
+    color: #4a2810;
+    border: 2px solid #d4af37;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.18);
+    padding: 18px 38px;
+    margin: 30px auto 0 auto;
+    text-shadow: 0 1px 0 #fffbe9;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(233, 69, 96, 0.3);
+    z-index: 1;
+}
+.timeline-link:hover {
+    background: linear-gradient(120deg, #ffe9a7 0%, #f7e7b4 100%);
+    color: #a67c00;
+    border-color: #a67c00;
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.28);
+    transform: translateY(-2px) scale(1.04);
+}
+.timeline-link .button-icon {
+    font-size: 28px;
+    filter: drop-shadow(0 1px 0 #fffbe9);
+}
+.timeline-link-text {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 0 8px;
+}
+.start-journey-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0 20px 0;
+}
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #8b6914;
+    border-radius: 5px;
+}
+
+.historical-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #8b6914;
+    pointer-events: none;
+}
+
+.content-decoration {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b6914, transparent);
+    margin: 30px 0;
+}
+
+/* Footer histórico */
+.historical-footer {
+    background: linear-gradient(145deg, #1a0f0f 0%, #2d1810 100%);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    border-top: 3px solid #8b6914;
+}
+
+.footer-content {
+    color: #a89968;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.footer-decoration {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b6914, transparent);
+    margin: 10px auto;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navigation-scroll {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(26, 15, 15, 0.9);
+    }
+
+    .historical-document {
+        padding: 20px;
+    }
+
+    .seal-decoration {
+        width: 60px;
+        height: 60px;
+        top: -20px;
+        right: -10px;
+    }
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: #0a0a0a;
+    color: #2c1810;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/fondoPerga.webp') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Navegación estilo histórico */
+.navigation-scroll {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    background: linear-gradient(145deg, #1a0f0f 0%, #2d1810 100%);
+    border: 2px solid #8b6914;
+    padding: 12px 20px;
+    color: #d4af37;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link:hover {
+    transform: translateX(5px);
+    background: linear-gradient(145deg, #2d1810 0%, #1a0f0f 100%);
+    border-color: #d4af37;
+    box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+}
+
+.nav-icon {
+    font-size: 20px;
+}
+
+/* Header estilo histórico */
+.historical-header {
+    background: linear-gradient(145deg, #1a0f0f 0%, #2d1810 100%);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    border-bottom: 3px solid #8b6914;
+    box-shadow: 0 4px 20px rgba(139, 105, 20, 0.3);
+    z-index: 1;
 }
 
 header::before {
