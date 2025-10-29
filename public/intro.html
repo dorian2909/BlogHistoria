@@ -1,128 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introducción Histórica</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/intro.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/intro.css" />
+  </head>
+  <body>
     <div class="page-background"></div>
-    
+
     <nav class="navigation-scroll">
-        <a href="index.html" class="nav-link">
-            <span class="nav-icon">↩</span>
-            Volver
-        </a>
-        <a href="galeria.html" class="nav-link">
-            <span class="nav-icon">🖼</span>
-            Galería
-        </a>
+      <a href="index.html" class="nav-link">
+        <span class="nav-icon">↩</span>
+        Volver
+      </a>
+      <a href="galeria.html" class="nav-link">
+        <span class="nav-icon">🖼</span>
+        Galería
+      </a>
     </nav>
 
     <header class="historical-header">
-        <div class="header-content">
-            <div class="header-decoration left"></div>
-            <h1>Expansión Imperialista</h1>
-            <div class="header-decoration right"></div>
-        </div>
-        <div class="header-seal"></div>
+      <div class="header-content">
+        <div class="header-decoration left"></div>
+        <h1>Expansión Imperialista</h1>
+        <div class="header-decoration right"></div>
+      </div>
+      <div class="header-seal"></div>
     </header>
-   
+
     <main>
-        <article class="historical-document">
-            <div class="document-header">
-                <div class="seal-decoration"></div>
-                <h2>Introducción Histórica</h2>
-                <div class="year-mark">1856</div>
-            </div>
+      <article class="historical-document">
+        <div class="document-header">
+          <h2>Introducción</h2>
+        </div>
 
-            <div class="document-content">
-                <div class="content-decoration top"></div>
-                <p class="historical-text">
-                    Durante el siglo XIX, Estados Unidos se consolidó como una potencia emergente que 
-                    buscaba expandir su influencia por el continente americano. 
-                    Este proceso estuvo impulsado por una mezcla de ambición económica, 
-                    poder militar y una fuerte creencia ideológica conocida como el Destino Manifiesto, 
-                    que afirmaba que los estadounidenses 
-                    tenían la misión divina de extender su civilización y su sistema político.
-                </p>
-                <div class="historical-image-container">
-                    <img src="assets/introdu.jpg" alt="Contexto histórico del siglo XIX" class="historical-image">
-                    <div class="image-frame"></div>
-                </div>
-                <div class="start-journey-container">
-                    <a href="timeline.html" class="historical-button timeline-link">
-                        <span class="button-icon">⏳</span>
-                        <span class="timeline-link-text">Ver Línea del Tiempo</span>
-                        <span class="button-icon">📜</span>
-                    </a>
-                </div>
+        <div class="document-content">
+          <div class="content-decoration top"></div>
+          <p class="historical-text">
+            La Campaña Centroamericana fue uno de los
+            momentos más importantes de nuestra historia, cuando Costa Rica y
+            otros países de la región se unieron para enfrentar la invasión del
+            filibustero William Walker. Pero este conflicto no apareció de la
+            nada: fue parte de un proceso más grande relacionado con el
+            imperialismo estadounidense y la idea del “Destino Manifiesto”, que
+            justificaba la expansión de Estados Unidos hacia otros territorios.
+            En esta presentación veremos cómo el contexto mundial, el auge del
+            imperialismo, las ideas de superioridad y el fenómeno del
+            filibusterismo llevaron a esta amenaza contra Centroamérica. Todo
+            esto nos ayuda a entender que la Campaña Nacional no fue un hecho
+            aislado, sino una respuesta a una expansión que ponía en riesgo la
+            soberanía de toda la región.
+          </p>
 
-                <div class="content-decoration bottom"></div>
-            </div>
-        </article>
+          <div class="historical-image-container">
+            <img
+              src="assets/introdu.jpg"
+              alt="Contexto histórico del siglo XIX"
+              class="historical-image"
+            />
+            <div class="image-frame"></div>
+          </div>
+          <div class="start-journey-container">
+            <button id="startTimeline" class="historical-button timeline-link">
+              <span class="button-icon">⏳</span>
+              <span class="timeline-link-text">Comenzar Historia</span>
+              <span class="button-icon">📜</span>
+            </button>
+          </div>
+
+          <div class="content-decoration bottom"></div>
+        </div>
+      </article>
     </main>
 
     <!-- Script para la línea del tiempo -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const startButton = document.getElementById('startTimeline');
-            const timeline = document.getElementById('timeline');
-            const events = document.querySelectorAll('.timeline-event');
-            const prevButton = document.querySelector('.nav-button.prev');
-            const nextButton = document.querySelector('.nav-button.next');
-            let currentEventIndex = 0;
+      document.addEventListener("DOMContentLoaded", function () {
+        const startButton = document.getElementById("startTimeline");
+        
+        if (startButton) {
+          // Efecto de animación de entrada
+          startButton.classList.add('animate-in');
+          startButton.addEventListener('animationend', () => {
+            startButton.classList.remove('animate-in');
+          });
 
-            // Mostrar la línea del tiempo
-            startButton.addEventListener('click', function() {
-                timeline.classList.remove('hidden');
-                timeline.scrollIntoView({ behavior: 'smooth' });
-                showEvent(0);
-            });
-
-            // Navegación de eventos
-            function showEvent(index) {
-                events.forEach((event, i) => {
-                    event.classList.toggle('active', i === index);
-                    event.style.transform = `translateX(${(i - index) * 100}%)`;
-                });
-                currentEventIndex = index;
-                updateNavButtons();
-            }
-
-            function updateNavButtons() {
-                prevButton.disabled = currentEventIndex === 0;
-                nextButton.disabled = currentEventIndex === events.length - 1;
-            }
-
-            prevButton.addEventListener('click', () => {
-                if (currentEventIndex > 0) showEvent(currentEventIndex - 1);
-            });
-
-            nextButton.addEventListener('click', () => {
-                if (currentEventIndex < events.length - 1) showEvent(currentEventIndex + 1);
-            });
-
-            // Toggle detalles de eventos
-            document.querySelectorAll('.details-toggle').forEach(button => {
-                button.addEventListener('click', function() {
-                    const details = this.previousElementSibling;
-                    details.classList.toggle('hidden');
-                    this.textContent = details.classList.contains('hidden') ? 'Ver más' : 'Ver menos';
-                });
-            });
-        });
+          // Redirigir a main.html al hacer clic
+          startButton.addEventListener('click', function () {
+            window.location.href = 'main.html';
+          });
+        }
+      });
     </script>
-    
+
+
     <footer class="historical-footer">
-        <div class="footer-content">
-            <div class="footer-decoration"></div>
-            <p class="footer-text">© 2024 - Documento Histórico</p>
-        </div>
+      <div class="footer-content">
+        <div class="footer-decoration"></div>
+        <p class="footer-text">© 2025 - Documento Histórico</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
